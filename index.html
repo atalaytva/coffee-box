@@ -67,7 +67,7 @@ header nav a:hover { color:#d9f7dc; }
     <nav>
         <a onclick="showSection('home')">ANA SAYFA</a>
         <a onclick="showSection('menu')">MENÜ</a>
-        <a href="#">HAKKINDA</a>
+        <a href="#">HAKKIMIZDA</a>
         <a onclick="showSection('call')">İLETİŞİM</a>
     </nav>
 </header>
@@ -79,14 +79,14 @@ header nav a:hover { color:#d9f7dc; }
     </div>
 
     <div id="search-box">
-        <input type="text" placeholder="ARAMA...">
+        <input type="text" placeholder="SEARCH...">
     </div>
 
     <!-- Slider Home -->
     <div class="slider-container">
         <button class="slide-btn left" onclick="manualSlide('home', -1)">&#10094;</button>
         <div class="slider-wrapper" id="slider-home">
-            <!-- کارت‌ها با عکس‌ها -->
+            
             <div class="coffee-card">
                 <img src="https://images.unsplash.com/photo-1510626176961-4b9f6fc64f3b" alt="Espresso">
                 <h3>Espresso</h3>
@@ -140,7 +140,7 @@ header nav a:hover { color:#d9f7dc; }
     <div class="slider-container">
         <button class="slide-btn left" onclick="manualSlide('menu', -1)">&#10094;</button>
         <div class="slider-wrapper" id="slider-menu">
-            <!-- همان کارت‌ها با عکس‌ها -->
+        
             <div class="coffee-card">
                 <img src="https://images.unsplash.com/photo-1510626176961-4b9f6fc64f3b" alt="Espresso">
                 <h3>Espresso</h3>
@@ -218,7 +218,7 @@ function manualSlide(sliderName, direction){
     slider.wrapper.style.transform = `translateX(${-slider.index * cardWidth}px)`;
 }
 
-// حرکت اتوماتیک
+
 setInterval(()=>{
     manualSlide('home', 1);
     manualSlide('menu', 1);
@@ -227,3 +227,4 @@ setInterval(()=>{
 </script>
 </body>
 </html>
+
