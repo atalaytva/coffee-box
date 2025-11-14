@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtalayBox</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
+body { 
+    animation: gradientBG 15s ease infinite; 
+    background: linear-gradient(-45deg, #006241, #298564, #0f6846, #004d31);
+    background-size: 400% 400%;
+    color:white;
+}
+@keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+}
+
+header {
+    width:100%; background:#004d31; padding:15px 40px;
+    display:flex; justify-content:space-between; align-items:center;
+    position:sticky; top:0; z-index:100; color:rgb(0, 0, 0);
+}
+header .logo { font-size:28px; font-weight:bold; letter-spacing:1px; cursor:pointer; }
+header nav a { color:white; text-decoration:none; margin-left:25px; font-size:18px; transition:0.3s; cursor:pointer; }
+header nav a:hover { color:#d9f7dc; }
+
+#search-box { display:flex; justify-content:center; margin:50px 0; }
+#search-box input {
+    width:400px; padding:12px 18px; border:2px solid #bbb; border-radius:30px;
+    font-size:17px; outline:none; transition:0.3s;
+}
+#search-box input:focus { border-color:#79afc4; box-shadow:0 0 15px #00624150; }
+
+.hero { text-align:center; margin-top:40px; }
+.hero h1 { font-size:48px; margin-bottom:20px; animation:fadeInDown 1s; }
+.hero p { font-size:20px; color:#d9f7dc; animation:fadeInUp 1s; }
+
+.slider-container { position:relative; width:90%; max-width:1200px; margin:50px auto; overflow:hidden; }
+.slider-wrapper { display:flex; transition:0.5s; }
+.slide-btn {
+    position:absolute; top:50%; transform:translateY(-50%); background:#006241; color:white; border:none;
+    padding:10px 15px; font-size:24px; cursor:pointer; border-radius:50%; z-index:10; opacity:0.8;
+}
+.slide-btn:hover { background:#009a65; }
+.slide-btn.left { left:10px; }
+.slide-btn.right { right:10px; }
+.coffee-card { flex:0 0 250px; margin:0 10px; background:papayawhip; border-radius:15px; box-shadow:0 0 20px rgba(0,0,0,0.1); text-align:center; transition:0.3s; }
+.coffee-card img { width:100%; height:200px; object-fit:cover; border-radius:15px 15px 0 0; }
+.coffee-card h3 { margin:15px 0 5px; color:#006241; }
+.coffee-card p { margin:0 15px 15px; color:#555; font-size:14px; }
+.coffee-card .price { font-weight:bold; margin-bottom:15px; color:#009a65; font-size:16px; }
+.order-btn { display:inline-block; margin-bottom:15px; padding:10px 20px; background:#006241; color:white; border-radius:8px; text-decoration:none; transition:0.3s; }
+.order-btn:hover { background:#009a65; }
+
+@keyframes fadeInDown { from {opacity:0; transform:translateY(-50px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo" onclick="showSection('home')">AtalayBox</div>
+    <nav>
+        <a onclick="showSection('home')">ANA SAYFA</a>
+        <a onclick="showSection('menu')">MENÜ</a>
+        <a href="#">HAKKINDA</a>
+        <a onclick="showSection('call')">İLETİŞİM</a>
+    </nav>
+</header>
+
+<div id="home">
+    <div class="hero">
+        <h1>AtalayBox'a Hoşgeldiniz!</h1>
+        <p>En iyi kahveler, eşsiz tat ve kaliteyle!</p>
+    </div>
+
+    <div id="search-box">
+        <input type="text" placeholder="ARAMA...">
+    </div>
+
+    <!-- Slider Home -->
+    <div class="slider-container">
+        <button class="slide-btn left" onclick="manualSlide('home', -1)">&#10094;</button>
+        <div class="slider-wrapper" id="slider-home">
+            <!-- کارت‌ها با عکس‌ها -->
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1510626176961-4b9f6fc64f3b" alt="Espresso">
+                <h3>Espresso</h3>
+                <p>Yoğun ve klasik tatlı kahve.</p>
+                <div class="price">20₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cappuccino">
+                <h3>Cappuccino</h3>
+                <p>Frothlu süt ve biraz kakao ile kahve.</p>
+                <div class="price">25₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1529692236671-f1a7d73ff6e5" alt="Latte">
+                <h3>Latte</h3>
+                <p>Espresso ve yumuşak buharlı süt.</p>
+                <div class="price">28₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Mocha">
+                <h3>Mocha</h3>
+                <p>Çikolata ve espresso birleşimi.</p>
+                <div class="price">30₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1532634896-26909d0d00f9" alt="Americano">
+                <h3>Americano</h3>
+                <p>Sade ve güçlü kahve keyfi.</p>
+                <div class="price">22₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1511919884226-0d5d2e2dc227" alt="Macchiato">
+                <h3>Macchiato</h3>
+                <p>Espresso ve az miktarda süt.</p>
+                <div class="price">26₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+        </div>
+        <button class="slide-btn right" onclick="manualSlide('home', 1)">&#10095;</button>
+    </div>
+</div>
+
+<div id="menu" style="display:none;">
+    <h1 style="text-align:center; margin-top:40px;">Kahve Menüsü</h1>
+    <!-- Slider Menu -->
+    <div class="slider-container">
+        <button class="slide-btn left" onclick="manualSlide('menu', -1)">&#10094;</button>
+        <div class="slider-wrapper" id="slider-menu">
+            <!-- همان کارت‌ها با عکس‌ها -->
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1510626176961-4b9f6fc64f3b" alt="Espresso">
+                <h3>Espresso</h3>
+                <p>Yoğun ve klasik tatlı kahve.</p>
+                <div class="price">20₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cappuccino">
+                <h3>Cappuccino</h3>
+                <p>Frothlu süt ve biraz kakao ile kahve.</p>
+                <div class="price">25₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1529692236671-f1a7d73ff6e5" alt="Latte">
+                <h3>Latte</h3>
+                <p>Espresso ve yumuşak buharlı süt.</p>
+                <div class="price">28₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Mocha">
+                <h3>Mocha</h3>
+                <p>Çikolata ve espresso birleşimi.</p>
+                <div class="price">30₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1532634896-26909d0d00f9" alt="Americano">
+                <h3>Americano</h3>
+                <p>Sade ve güçlü kahve keyfi.</p>
+                <div class="price">22₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+            <div class="coffee-card">
+                <img src="https://images.unsplash.com/photo-1511919884226-0d5d2e2dc227" alt="Macchiato">
+                <h3>Macchiato</h3>
+                <p>Espresso ve az miktarda süt.</p>
+                <div class="price">26₺</div>
+                <a class="order-btn" href="#">Sipariş Ver</a>
+            </div>
+        </div>
+        <button class="slide-btn right" onclick="manualSlide('menu', 1)">&#10095;</button>
+    </div>
+</div>
+
+<div id="call" style="display:none; text-align:center; margin-top:50px;">
+    <h1>İletişim</h1>
+    <p>Bize ulaşmak için telefon numaramız:</p>
+    <p style="font-size:20px; font-weight:bold; color:#162417;">+90 555 123 45 67</p>
+</div>
+
+<script>
+function showSection(section){
+    document.getElementById('home').style.display = section==='home' ? 'block' : 'none';
+    document.getElementById('menu').style.display = section==='menu' ? 'block' : 'none';
+    document.getElementById('call').style.display = section==='call' ? 'block' : 'none';
+}
+
+// Slider
+const sliders = {
+    home: { wrapper: document.getElementById('slider-home'), index: 0 },
+    menu: { wrapper: document.getElementById('slider-menu'), index: 0 }
+};
+const cardWidth = 270;
+const visibleCards = 3;
+
+function manualSlide(sliderName, direction){
+    let slider = sliders[sliderName];
+    slider.index += direction;
+    const totalCards = slider.wrapper.children.length;
+    if(slider.index < 0) slider.index = totalCards - visibleCards;
+    if(slider.index > totalCards - visibleCards) slider.index = 0;
+    slider.wrapper.style.transform = `translateX(${-slider.index * cardWidth}px)`;
+}
+
+// حرکت اتوماتیک
+setInterval(()=>{
+    manualSlide('home', 1);
+    manualSlide('menu', 1);
+}, 3000);
+
+</script>
+</body>
+</html>
